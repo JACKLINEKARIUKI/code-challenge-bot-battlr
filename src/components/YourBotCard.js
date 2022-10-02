@@ -9,10 +9,15 @@ const botTypeClasses = {
   Captain: "icon star",
 };
 
-function BotCard({ bot, addBotToArmy }) {
+
+function YourBotCard({ bot, removeBotFromArmy, deleteBot }) {
   return (
     <div className="ui column">
-      <div className="ui card" key={bot.id} onClick={()=>addBotToArmy(bot)}>
+      <div
+        className="ui card"
+        key={bot.id}
+        onClick={() => removeBotFromArmy(bot)}
+      >
         <div className="image">
           <img alt="oh no!" src={bot.avatar_url} />
         </div>
@@ -43,9 +48,7 @@ function BotCard({ bot, addBotToArmy }) {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={() =>
-                  console.log("add code to connect event listener")
-                }
+                onClick={() => deleteBot(bot)}
               >
                 x
               </button>
@@ -57,4 +60,4 @@ function BotCard({ bot, addBotToArmy }) {
   );
 }
 
-export default BotCard;
+export default YourBotCard;
