@@ -1,15 +1,11 @@
 import React from "react";
-import YourBotCard from "./YourBotCard";
+import BotCard from "./BotCard";
 
-function YourBotArmy({yourBots, setYourBots, deleteBot}) {
-
-
-
- function removeBotFromArmy(bot) {
-   const newArmy = yourBots.filter((b) => b.id !== bot.id);
+function YourBotArmy({ yourBots, setYourBots, deleteBot }) {
+  function removeBotFromArmy(bot) {
+    const newArmy = yourBots.filter((b) => b.id !== bot.id);
     setYourBots(newArmy);
-    }
-
+  }
 
   return (
     <div className="ui segment inverted olive bot-army">
@@ -17,13 +13,15 @@ function YourBotArmy({yourBots, setYourBots, deleteBot}) {
         <div className="row bot-army-row">
           {yourBots.map((bot) => {
             return (
-              <YourBotCard
+              <BotCard
                 bot={bot}
                 key={bot.id}
                 removeBotFromArmy={removeBotFromArmy}
                 deleteBot={deleteBot}
+                isInArmy={true}
               />
-            );})}
+            );
+          })}
           Your Bot Army
         </div>
       </div>
